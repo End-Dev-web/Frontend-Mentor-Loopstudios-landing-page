@@ -1,0 +1,56 @@
+/*------------------RESET--------------------*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img,
+picture,
+svg {
+  max-width: 100%;
+  object-fit: contain;
+}
+
+img,
+picture,
+svg,
+button {
+  display: block;
+}
+
+button,
+input,
+span {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  // outline: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+input {
+  width: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

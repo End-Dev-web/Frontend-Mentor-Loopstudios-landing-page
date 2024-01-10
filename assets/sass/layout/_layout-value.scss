@@ -1,0 +1,15 @@
+$layout-values: flex-start, flex-end, center, space-between, space-around;
+
+// justify content
+@each $val in $layout-values {
+  .justify-#{$val} {
+    justify-content: $val;
+  }
+}
+
+// align items
+@each $val in $layout-values {
+  .align-#{$val} {
+    align-items: $val;
+  }
+}

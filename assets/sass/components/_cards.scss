@@ -1,0 +1,109 @@
+@use "../abstracts/" as *;
+
+.card {
+  position: relative;
+  background-color: var(--neutral-card-bg);
+  text-align: center;
+  padding-block: 0.8rem;
+  padding-inline: 1.5rem;
+  transition: backgtound-color 0.5s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--hover-bg);
+  }
+  img {
+    margin: auto;
+  }
+  .name,
+  .days {
+    font-size: 0.8rem;
+  }
+  .number {
+    font-size: var(--fs-900);
+  }
+  .followers {
+    font-weight: var(--fw-400);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+  .days {
+    position: relative;
+    color: var(--primary-lime-green);
+
+    &::before {
+      content: "";
+      position: absolute;
+      border: 8px solid;
+      border-color: transparent transparent var(--primary-lime-green)
+        transparent;
+      width: 8px;
+      height: 8px;
+      bottom: 5px;
+      left: -21px;
+    }
+  }
+  &.facebook {
+    border-top: 4px solid var(--primary-facebook-clr);
+  }
+  &.twitter {
+    border-top: 4px solid var(--primary-twitter-clr);
+  }
+  &.instagram::before {
+    content: "";
+    position: absolute;
+    background-image: linear-gradient(white, white),
+      var(--primary-instargam-clr);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    border-top: solid 4px transparent;
+    padding-block-start: 3px;
+    padding: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-top-right-radius: 28px;
+    border-top-left-radius: 28px;
+  }
+  &.youtube {
+    border-top: 4px solid var(--primary-youtube-clr);
+    .days {
+      color: var(--primary-youtube-clr);
+      &::before {
+        border-color: var(--primary-youtube-clr) transparent transparent
+          transparent;
+        bottom: -5px;
+      }
+    }
+  }
+}
+
+.card-2 {
+  .card {
+    border: 0;
+    padding-block: 1px;
+    &::before {
+      background-image: none;
+    }
+    .name {
+      font-size: 0.9rem;
+    }
+    img {
+      margin: inherit;
+    }
+    .number {
+      font-size: var(--fs-800);
+    }
+    .days {
+      &::before {
+        bottom: 5px;
+      }
+    }
+    &.youtube {
+      .days {
+        &::before {
+          bottom: -5px;
+        }
+      }
+    }
+  }
+}

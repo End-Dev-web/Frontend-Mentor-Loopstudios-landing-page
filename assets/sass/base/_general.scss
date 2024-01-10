@@ -1,0 +1,14 @@
+@use "../abstracts/" as *;
+@use "./font-face" as *;
+/*------------------GENERAL--------------------*/
+* {
+  font-family: "Josefin Sans";
+}
+
+body {
+  font-family: $font-family-base;
+  color: var(--primary-color);
+  background-color: var(--primary-white);
+  // min-height: 500vh;
+  overflow-x: hidden;
+}

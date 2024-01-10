@@ -1,0 +1,31 @@
+@use "../abstracts/" as *;
+/*------------------ROOT--------------------*/
+:root {
+  //colors
+  @each $name, $color in $light {
+    @each $shade-color, $value in $color {
+      --#{$name}-#{$shade-color}: #{$value};
+    }
+  }
+
+  // font size
+  @each $name, $shade in $font-size {
+    @if $name == small {
+      @each $shade-name, $value in $shade {
+        --fs-#{$shade-name}: #{$value};
+      }
+    } @else {
+      @include mq(md) {
+        @each $shade-name, $value in $shade {
+          --fs-#{$shade-name}: #{$value};
+        }
+      }
+    }
+  }
+  // font weight
+  @each $name, $shade in $font-weight {
+    @each $shade-name, $value in $shade {
+      --#{$name}-#{$shade-name}: #{$value};
+    }
+  }
+}

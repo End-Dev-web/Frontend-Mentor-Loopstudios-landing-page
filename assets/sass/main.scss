@@ -1,0 +1,134 @@
+@use "./base";
+@use "./themes";
+@use "./components";
+@use "./layout";
+@use "./utilities";
+@use "./abstracts/" as *;
+
+main {
+  .content {
+    @media (max-width: 320px) {
+      width: 300px;
+    }
+  }
+  .hero {
+    position: relative;
+    background-image: url("../assets/images/mobile/image-hero.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    justify-items: start;
+    // width: fit-content;
+    // padding: 11rem 10.3rem 6rem;
+    // padding-inline: 1rem;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: hsla(220, 17%, 7%, 48%);
+    }
+    @include mq(xl) {
+      padding-inline-start: 11rem;
+      padding-block-start: 4rem;
+    }
+    @include mq(md) {
+      background-image: url("../assets/images/desktop/image-hero.jpg");
+      width: auto;
+    }
+    h1 {
+      position: relative;
+      // padding: 1rem;
+      margin-inline: 1rem;
+      z-index: 1;
+      &::before {
+        content: "";
+        position: absolute;
+        border: 2px solid white;
+        width: 100%;
+        height: 100%;
+        left: 0rem;
+        top: 0rem;
+        z-index: -1;
+      }
+      @include mq(md) {
+        width: 650px;
+        padding-block-start: 2rem;
+        padding-inline: 2rem;
+      }
+      @include mq(xl) {
+        margin-inline: -21px;
+      }
+    }
+  }
+  .text {
+    background-color: var(--primary-white);
+    text-align: center;
+    p {
+      font-family: "alata" !important;
+      line-height: 1.5;
+      color: var(--primary-dark-gray);
+      font-size: 1.1rem;
+      @include mq(md) {
+        font-size: 0.92rem;
+      }
+    }
+    @include mq(md) {
+      text-align: left;
+      padding-inline-start: 5rem;
+      padding-block-start: 2rem;
+    }
+    // margin-inline: -2rem;
+  }
+
+  .img-creations {
+    .img {
+      position: relative;
+      p {
+        position: absolute;
+        font-size: var(--fs-500);
+        bottom: 10%;
+        left: 5%;
+        text-transform: uppercase;
+        color: var(--primary-white);
+        @include mq(md) {
+          bottom: 7%;
+          left: 15%;
+        }
+      }
+    }
+  }
+}
+
+section:nth-child(2) {
+  picture {
+    // width: fit-content;
+    margin: auto;
+    width: 700px;
+    z-index: -1;
+    @include mq(md) {
+      max-width: 700px;
+    }
+  }
+}
+
+.opacity-image {
+  position: relative;
+  overflow: hidden;
+  // opacity: 0;
+  z-index: 1;
+  cursor: pointer;
+  .hover-image {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-white);
+    opacity: 0.5;
+  }
+}

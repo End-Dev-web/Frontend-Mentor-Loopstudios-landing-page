@@ -1,0 +1,18 @@
+@use "../abstracts/" as *;
+.heading-1 {
+  @include heading($font-size-900);
+  color: $white;
+  text-transform: uppercase;
+}
+.heading-2 {
+  @include heading($font-size-800);
+  color: var(--primary-black);
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+.heading-3 {
+  @include heading($font-size-700);
+  color: var(--neutral-off-white);
+  font-weight: var(--fw-regular);
+  text-transform: uppercase;
+}

@@ -1,0 +1,13 @@
+$white: hsl(0, 0%, 98%);
+$black: hsl(0, 0%, 0%);
+$dark-gray: hsl(0, 0%, 55%);
+$very-dark: hsl(0, 0%, 41%);
+
+$light: (
+  "primary": (
+    "white": $white,
+    "black": $black,
+    "dark-gray": $dark-gray,
+    "very-dark": $very-dark,
+  ),
+);

@@ -1,0 +1,15 @@
+@use "../abstracts/" as *;
+footer {
+  text-align: center;
+  font-weight: bold;
+  .links,
+  .social {
+    margin: auto;
+    @include mq(md) {
+      margin: inherit;
+    }
+  }
+  .social {
+    justify-content: center;
+  }
+}

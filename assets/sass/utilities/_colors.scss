@@ -1,0 +1,12 @@
+@use "../abstracts" as *;
+
+@each $name, $color in $light {
+  @each $shade-color, $value in $color {
+    .clr-#{$name}-#{$shade-color} {
+      color: var(--#{$name}-#{$shade-color});
+    }
+    .bg-#{$name}-#{$shade-color} {
+      background-color: var(--#{$name}-#{$shade-color});
+    }
+  }
+}

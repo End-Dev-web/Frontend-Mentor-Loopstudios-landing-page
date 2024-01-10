@@ -1,0 +1,15 @@
+@use "./breakpoints" as *;
+
+@mixin mq($size) {
+  $breakpoint: map-get($breakpoints, $size);
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin heading($fs) {
+  font-size: $fs;
+  text-transform: inherit;
+  font-weight: var(--fw-bold);
+  // color: var(--neutral-white);
+}

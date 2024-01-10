@@ -1,0 +1,29 @@
+@use "../abstracts/" as *;
+
+$raduis-value: (
+  "full": 1000px,
+  "extra-large": 28px,
+  "large": 16px,
+  "meduim": 12px,
+  "small": 8px,
+  "extra-small": 4px,
+);
+
+@each $name, $value in $raduis-value {
+  .raduis-#{$name} {
+    border-radius: $value;
+  }
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--neutral-text-clr);
+  width: 100%;
+  @include mq(sm) {
+    border-bottom: none;
+    width: inherit;
+  }
+}
+
+.border {
+  border: 2px solid var(--primary-white);
+}

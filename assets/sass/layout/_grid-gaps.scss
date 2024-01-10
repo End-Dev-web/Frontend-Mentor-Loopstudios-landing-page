@@ -1,0 +1,18 @@
+$grid-gaps: (
+  "0": 0,
+  "1": 10px,
+  "2": 20px,
+  "3": 1.5rem,
+);
+
+// grid gaps
+@each $key, $val in $grid-gaps {
+  .gap-#{$key} {
+    gap: $val;
+    // margin-inline: -$val;
+  }
+}
+
+// .gap:not(:last-child) {
+//   gap: 5rem;
+// }

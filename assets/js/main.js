@@ -33,9 +33,10 @@ window.addEventListener("scroll", function () {
 
 // GSAP Animation
 // Text Animation
+gsap.registerPlugin(ScrollTrigger);
 const splitText = document.querySelectorAll("[split-text]");
 const opacityImage = document.querySelectorAll("[opacity-image]");
-gsap.registerPlugin(ScrollTrigger, SplitText);
+gsap.registerPlugin(SplitText);
 
 splitText.forEach((item) => {
   const split = new SplitText(item, { type: "chars" });

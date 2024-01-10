@@ -1683,6 +1683,7 @@ section:nth-child(2) picture {
 .opacity-image {
   position: relative;
   overflow: hidden;
+  opacity: 0;
   z-index: 1;
   cursor: pointer;
 }

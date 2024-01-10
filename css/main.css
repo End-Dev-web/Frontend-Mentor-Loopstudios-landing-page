@@ -370,12 +370,16 @@ li .line {
   width: 0;
   height: 3px;
   background-color: var(--primary-white);
+  transition: width 0.3s;
   z-index: -1;
 }
 @media screen and (min-width: 768px) {
   li .line {
     top: 21px;
   }
+}
+li:hover .line {
+  width: 100%;
 }
 
 .button {
@@ -398,7 +402,11 @@ li .line {
   width: 100%;
   height: 100%;
   background-color: var(--primary-black);
+  transition: 0.5s;
   z-index: -1;
+}
+.button:hover .hover {
+  left: 0;
 }
 .button:hover {
   color: var(--primary-white);
@@ -1684,8 +1692,14 @@ section:nth-child(2) picture {
   position: relative;
   overflow: hidden;
   opacity: 0;
+  transform: translateX(-100%);
   z-index: 1;
   cursor: pointer;
+  transition: all 1s;
+}
+.opacity-image.show {
+  opacity: 1;
+  transform: translateX(0);
 }
 .opacity-image .hover-image {
   position: absolute;
@@ -1695,6 +1709,31 @@ section:nth-child(2) picture {
   height: 100%;
   background-color: var(--primary-white);
   opacity: 0.5;
+  transition: 0.5s;
+}
+.opacity-image:hover .hover-image {
+  top: 0;
+}
+.opacity-image:nth-child(2) {
+  transition-delay: 200ms;
+}
+.opacity-image:nth-child(3) {
+  transition-delay: 400ms;
+}
+.opacity-image:nth-child(4) {
+  transition-delay: 600ms;
+}
+.opacity-image:nth-child(5) {
+  transition-delay: 800ms;
+}
+.opacity-image:nth-child(6) {
+  transition-delay: 1000ms;
+}
+.opacity-image:nth-child(7) {
+  transition-delay: 1200ms;
+}
+.opacity-image:nth-child(8) {
+  transition-delay: 1400ms;
 }
 
 /*# sourceMappingURL=main.css.map */

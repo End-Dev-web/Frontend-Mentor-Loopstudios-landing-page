@@ -31,70 +31,19 @@ window.addEventListener("scroll", function () {
   }
 });
 
-// GSAP Animation
-// Text Animation
-gsap.registerPlugin(ScrollTrigger);
-const splitText = document.querySelectorAll("[split-text]");
-const opacityImage = document.querySelectorAll("[opacity-image]");
-gsap.registerPlugin(SplitText);
-
-splitText.forEach((item) => {
-  const split = new SplitText(item, { type: "chars" });
-  gsap.set(item, { perspective: 400 });
-  gsap.from(split.chars, {
-    scrollTrigger: item,
-    duration: 1,
-    opacity: 0,
-    scale: 0,
-    y: 30,
-    transformOrigin: "0% 50% -50",
-    ease: "back",
-    stagger: 0.01,
+// Scroll Animation
+const observer = new IntersectionObserver((entries) => {
+  // your set of conditions goes here
+  // console.log(entries);
+  entries.forEach((entry) => {
+    // console.log(entry);
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+    // else {
+    //   entry.target.classList.remove("show");
+    // }
   });
 });
-
-// ScrollTriggre
-ScrollTrigger.batch(opacityImage, {
-  onEnter: (batch) => gsap.to(batch, { autoAlpha: 1, stagger: 0.5 }),
-});
-
-// Hover Buttons
-let animElm = document.querySelector(".hover");
-let slideElm = document.querySelector(".button");
-
-slideElm.addEventListener("mouseenter", () => {
-  let enterAnim = gsap.timeline();
-  enterAnim.to(animElm, { left: "0%", duration: 0.5 });
-});
-slideElm.addEventListener("mouseleave", () => {
-  let leaveAnim = gsap.timeline();
-  leaveAnim.to(animElm, { left: "-100%", duration: 0.5 });
-});
-
-// Hover Links
-
-const hoverLinks = document.querySelectorAll(".line-hover");
-gsap.defaults({ duration: 0.3 });
-
-hoverLinks.forEach(function (item) {
-  const lineKinks = item.querySelector(".line");
-  const tl = gsap
-    .timeline({ paused: true })
-    .to(lineKinks, { width: "100%" }, 0);
-
-  item.addEventListener("mouseenter", () => tl.play());
-  item.addEventListener("mouseleave", () => tl.reverse());
-});
-
-// Hover Image
-
-const hoverImage = document.querySelectorAll(".opacity-image");
-gsap.defaults({ duration: 0.3 });
-
-hoverImage.forEach(function (item) {
-  const images = item.querySelector(".hover-image");
-  const img = gsap.timeline({ paused: true }).to(images, { top: "0%" }, 0);
-
-  item.addEventListener("mouseenter", () => img.play());
-  item.addEventListener("mouseleave", () => img.reverse());
-});
+const opacityImage = document.querySelectorAll("[opacity-image]");
+opacityImage.forEach((el) => observer.observe(el));

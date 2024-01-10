@@ -120,8 +120,14 @@ section:nth-child(2) {
   position: relative;
   overflow: hidden;
   opacity: 0;
+  transform: translateX(-100%);
   z-index: 1;
   cursor: pointer;
+  transition: all 1s;
+  &.show {
+    opacity: 1;
+    transform: translateX(0);
+  }
   .hover-image {
     position: absolute;
     top: 100%;
@@ -130,5 +136,30 @@ section:nth-child(2) {
     height: 100%;
     background-color: var(--primary-white);
     opacity: 0.5;
+    transition: 0.5s;
+  }
+  &:hover .hover-image {
+    top: 0;
+  }
+  &:nth-child(2) {
+    transition-delay: 200ms;
+  }
+  &:nth-child(3) {
+    transition-delay: 400ms;
+  }
+  &:nth-child(4) {
+    transition-delay: 600ms;
+  }
+  &:nth-child(5) {
+    transition-delay: 800ms;
+  }
+  &:nth-child(6) {
+    transition-delay: 1000ms;
+  }
+  &:nth-child(7) {
+    transition-delay: 1200ms;
+  }
+  &:nth-child(8) {
+    transition-delay: 1400ms;
   }
 }
